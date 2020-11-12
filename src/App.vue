@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <DataTable :data="this.turbineData" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import DataTable from "./components/DataTable";
+import "./sass/app.scss";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    DataTable,
+  },
+  data() {
+    return {
+      turbineData: null,
+      loaded: false,
+    };
+  },
+  async mounted() {
+    try {
+      const response = await fetch(
+        "http://cyberhawkserver-env.eba-utqftrrm.eu-west-2.elasticbeanstalk.com/turbine-data"
+      );
+      this.turbineData = await response.json();
+      this.loaded = true;
+    } catch (e) {
+      console.error(e);
+    }
+  },
+};
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
 }
 </style>

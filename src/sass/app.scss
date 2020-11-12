@@ -1,0 +1,31 @@
+:root {
+    --body: #111;
+    --text-main: rgba(0,255,102);
+    --danger: #e42300;
+    --success: green;
+}
+
+body {
+    font-family: 'Inconsolata', monospace;
+    background-color: var(--body);
+    color: var(--text-main);
+    padding: 1em;
+    overflow-y: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 255, 102, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #343;
+    outline: 1px solid #343;
+}
+
+.txt-danger {
+    color: var(--danger);
+}
