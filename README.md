@@ -1,5 +1,9 @@
 # client2
 
+This project is live at http://cyberhawkclient.s3.eu-west-2.amazonaws.com/index.html
+
+*n.b. This will only work over http*
+
 ## Project setup
 ```
 npm install
